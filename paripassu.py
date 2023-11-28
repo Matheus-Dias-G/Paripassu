@@ -6,7 +6,7 @@ from unidecode import unidecode
 today = date.today()
 today = today.strftime('%d/%m/%y')
 
-providers = {'Antônio Marcos': '91.391.397/0001-45', 'Água de Coco':'91.393.397/0001-46'}
+providers = {'fornecedor1': '91.391.397/0001-45', 'fornecedor2':'91.393.397/0001-46'}
 
 
 top = ['Documento elo origem', 'Data', 'Nome produto', 'Embalagem', 'Capacidade embalagem', 'Unidade Embalagem', 'Quantidade']
@@ -28,13 +28,13 @@ def main():
             if unidecode(text[n][0].lower()) == unidecode(provider.lower()):
                 text[n][0] =  providers[provider]
  
-    with open('/home/mathasx/Documentos/programming/paripassu_csv/tabela.csv', 'w') as f:
+    with open('<seu diretorio>', 'w') as f:
         write = csv.writer(f)
         print(top)
         write.writerow(top)
         for product in text:
             write.writerow(product)
         f.close()
-        print('Arquivo tabela.csv criado no diretorio:/home/mathasx/Documentos/programming/paripassu_csv/')
+        print('Arquivo tabela.csv criado no diretorio:<seu diretorio>')
 if __name__ == "__main__":
     main()
